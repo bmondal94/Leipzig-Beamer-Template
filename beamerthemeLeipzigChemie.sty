@@ -1,0 +1,187 @@
+\ProvidesPackage{beamerthemeLeipzigChemie}[07/09/2021]
+
+\usepackage{tikz}
+
+\mode<presentation>
+
+%%%%%%% Define color %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{color1}{RGB}{220,0,0}
+\definecolor{color2}{RGB}{180,0,0}
+\definecolor{color3}{RGB}{95,158,160}
+\definecolor{DarkOrange}{RGB}{255, 152, 0}
+
+%%%%%%%%%%%%%%%% Title page Layout %%%%%%%%%%%%%%%
+\setbeamersize{sidebar width left=1mm, sidebar width right=1mm}
+
+\newcommand{\titleHeaderLayout}
+{
+    \begin{tikzpicture}
+        \node[anchor=south west, inner sep=0] (image) at (0,0)
+        {\includegraphics[height=0.2\paperheight]{imglib/logo.png}};
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]
+            \draw[gray, thick] (1.15,0) -- (1.15,1);
+            \node at (2.1,0.65) {\textcolor{black}{\Large \textsf{UNIVERSIT\"AT}}} ;
+            \node at (1.75,0.35) {\textcolor{black}{\Large \textsf{LEIPZIG}}} ;
+        \end{scope}
+    \end{tikzpicture}
+}
+
+\makeatletter
+\setbeamercolor{title}{fg=black}
+\setbeamerfont{title}{size=\LARGE, series=\bfseries}
+\setbeamerfont{institute}{size=\small,series=\mdseries}
+
+\setbeamertemplate{title page}
+{
+    %\vspace{1mm}
+    \titleHeaderLayout
+    \begingroup
+    \raggedright
+    \begin{beamercolorbox}[center]{subtitle}
+        \ifx\insertsubtitle\@empty%
+        \else%
+            \vskip.25em%
+            {\Large \insertsubtitle\par}%
+        \fi%  
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}{title}
+        \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+    \vskip0.1em
+    \begin{beamercolorbox}{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip2em
+    \begin{beamercolorbox}{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+  \endgroup
+}
+
+\newcommand{\GroupLogo}[1]{\addtobeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south east] (image) at (10.5,-3.5){\includegraphics[height=0.2\textheight]{#1}};
+    \end{tikzpicture}
+}}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%% Header and Footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%% Footline background (not footer) %%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{background}{
+{
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[red, thin] (0.075,0.85) -- (0.92,0.85);
+        \draw[black, thin] (0.075,0.855) -- (0.92,0.855);
+        \path[gray, thick]  (0.076,0.86) edge node[right, yshift=6pt] {\textcolor{black}{\small \textsf{UNIVERSIT\"AT} \hspace*{30em}\insertframenumber/\inserttotalframenumber}} (0.076,.98);
+        \path[gray]  (0.076,0.86) edge node[right, yshift=-6pt] {\textcolor{black}{\small \textsf{LEIPZIG}}} (0.076,.98);
+        \end{scope}
+    \end{tikzpicture}
+}}
+%%%%%%% Headline %%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}
+{\hbox{%
+\begingroup
+\begin{beamercolorbox}[wd=\paperwidth,ht=15pt,dp=2pt,left]{}%
+\rule[2.5pt]{25pt}{1.5pt}\hskip 2pt \small\insertshortsubtitle{} $\mid$ \insertshorttitle{}
+\end{beamercolorbox}%
+\endgroup
+}}
+
+%%%%%%% Frame title %%%%%%%%%%%%%%%
+\setbeamertemplate{frametitle}{\vskip 10pt\color{black}\bfseries \insertframetitle\par \vskip 2pt}
+
+%%%%%%%%%%%%%%%%%%%% Section page layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SpecialPageLayout}
+{\setbeamertemplate{background}{
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[color2,fill=color2, thin] (0.6,0) -- (1,0) --  (1,1) -- cycle;
+        \draw[color3, fill=color3, thin] (0.7,1) -- (1,1) --  (0.845,0.61) -- cycle;
+        \draw[color1, fill=color1, thin] (0.845,0.61) -- (1,1) --  (1,0.2) -- cycle;
+        \draw[red, thin] (0.075,0.85) -- (0.7,0.85);
+        \draw[black, thin] (0.075,0.855) -- (0.7,0.855);
+        \path[gray, thick]  (0.076,0.86) edge node[right, yshift=6pt] {\textcolor{black}{\small \textsf{UNIVERSIT\"AT}}} (0.076,.98);
+        \path[gray]  (0.076,0.86) edge node[right, yshift=-6pt] {\textcolor{black}{\small \textsf{LEIPZIG}}} (0.076,.98);
+        \end{scope}
+    \end{tikzpicture}
+}}
+
+%%%%%%%%%%%%%%%%%% Create the sub-sub-sections number %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbeamertemplate{subsubsection in toc}{subsubsections numbered}
+{\leavevmode\leftskip=3.5em%
+ \rlap{\hskip-3.5em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
+ \inserttocsubsubsection\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is to create title page. The data are taken from TitlePageInfo.tex
+\newcommand{\maketitlepage}{{
+\setbeamertemplate{background}{    
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[color3,fill=color3, thin] (0.6,1) -- (1,1) -- (1,0.6) -- cycle;
+        \draw[color1, fill=color1, thin] (0.9,1) -- (1,1) -- (1,0.6) -- (0.933,0.665) -- cycle;
+        \draw[color2, fill=color2,thin] (1,0.6) -- (0.933,0.665) -- (1,0) -- cycle;
+        \end{scope}
+    \end{tikzpicture}}
+\setbeamertemplate{headline}{}
+\begin{frame}
+  \titlepage %
+\end{frame}
+}}
+
+%% Number the table of contents
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+
+%% This is to make table of contents/ overview slide after title page
+\newcommand{\maketableofcontents}{
+    {
+    \SpecialPageLayout
+    \begin{frame}{Outline}
+        \tableofcontents
+        \vspace*{3em}
+    \end{frame}
+   } 
+}
+
+%% This will show table of content slides before move to each subsection
+\newcommand{\makesubsectionpopup}{
+\AtBeginSubsection[]
+{{
+    \SpecialPageLayout
+    \begin{frame}{Outline}
+        \tableofcontents[currentsection,currentsubsection]
+        \vspace*{3em}
+    \end{frame}
+}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Re-position Footnote %%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footnote}{%
+    \raggedright\hspace*{9em}%{\insertfootnotemark}
+    \parbox{30em}{$^{\text{\thefootnote}}$\scriptsize\insertfootnotetext}
+}
+
+\newcommand\addfootspace[1]{%
+    \begingroup
+        \renewcommand\thefootnote{}\footnote{#1}%
+        \addtocounter{footnote}{-1}%
+    \endgroup
+}
+
+%%%%%%%%%%% Switch off the footnoterule %%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\footnoterule}{}
+%\renewcommand{\footnoterule}{\kern -20pt \hrule width \columnwidth \kern 25pt}
+
+%%%%%%%%%%% Bibliograpy items as number %%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{bibliography item}{\insertbiblabel}

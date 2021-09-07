@@ -1,0 +1,57 @@
+\section{Footnote examples}
+\subsection{Subsection-1}
+\begin{frame}[fragile]{1st frame}
+    \begin{itemize}
+        \item This is one of the section\footnote{This is a long footnote. Here I am. Who am I?}. 
+        \item Let's check for 2nd footnote \footnote{This is a 2nd long footnote. Here I am. Who am I?}.
+        \item The footnotes will be added from the bottom. If you want to pull the footnotes towards red-black margin line then use \verb|\addfootspace{}| at the end of the \verb|\frame{}|.
+        \item \verb|\addfootspace{}| actually adds an additional vacant footnote (without counting that vacant footnote).
+        \item To add more foot space add more \verb|\addfootspace{}|. 
+    \end{itemize}
+\addfootspace{} %\addfootspace{}
+\end{frame}
+\subsection{Subsection-2}
+\begin{frame}[fragile]{2st frame}
+   $\bullet$ Here is the next section\footnote{This is a 2nd long footnote. Here I am. Who am I?}\\
+   $\bullet$ Here I used two \verb|\addfootspace{}|. Don't do \verb|\addfootspace{\vspace{1cm}}|.
+   \addfootspace{}\addfootspace{}
+\end{frame}
+\subsubsection{Subsubsection-1}
+\begin{frame}{2st frame: Subsubsection-1}
+$\bullet$ This is a test for sub-sub-section.
+\end{frame}
+\subsubsection{Subsubsection-2}
+\begin{frame}{2st frame: Subsubsection-2}
+$\bullet$ This is a test for sub-sub-section.
+\end{frame}
+
+\section{Citation examples}
+\subsection{Subsection-1}
+\begin{frame}{1st frame}
+\begin{enumerate}
+
+    \item Here is a super citation example \cite{Rubel2014, Nicklas2010}.
+    \item Here is an one liner multi-citation example \footfullcite{Rubel2014, Nicklas2010} with a footnote \renewcommand{\thefootnote}{\roman{footnote}}\footnote{Hello world}.
+\end{enumerate}
+\end{frame}
+
+\subsection{Subsection-2}
+\begin{frame}{2st frame}
+    \begin{itemize}
+        \item Here is a inplace citation example. [{\scriptsize \fullcite{Rosenow2018}}]
+        \item Here is a multiple citation example. \footfullcite{Rosenow2018}$^,$\footfullcite{VandeWalle2002}$^,$\footfullcite{Vurgaftman2001}
+        \item Test large list
+        \item Test large list
+        \item Test large list
+        \item Test large list
+        \item Test large list
+        \item Test large list
+        \item Test large list
+        \item Test large list
+        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{All references}
+    \printbibliography[heading=bibnumbered]
+\end{frame}

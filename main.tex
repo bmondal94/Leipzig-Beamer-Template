@@ -1,0 +1,20 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{ProjectSpecificAdditionalPackages}
+
+\import{./}{TitlePageInfo.tex}
+\addbibresource{references.bib}
+
+
+\begin{document}
+\maketitlepage %% This is to create title page. The data are taken from TitlePageInfo.tex
+\maketableofcontents %% This is to make table of contents/ overview slide after title page
+\makesubsectionpopup %% This will show table of content slides before move to each subsection
+
+\import{slides/}{Introduction.tex}
+\import{slides/}{Motivation.tex}
+\import{slides/}{CitationExample.tex}
+\import{slides/}{Summary.tex}
+\import{slides/}{Acknowledgement.tex}
+%\import{./}{test.tex}
+\end{document}
