@@ -1,4 +1,4 @@
-# Leipzig Beamer presentation template
+# Leipzig University Beamer presentation template
 Latex presentation template for Leipzig university.
 
 ## Notes
