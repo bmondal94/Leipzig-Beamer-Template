@@ -9,5 +9,9 @@ Latex presentation template for Leipzig university.
 * If you want to make any other page layout like `outline` page then add `\SpecialPageLayout` before that particular slide.
 * Use `\GroupLogo{logo-path}` to add department or group logo.
 
+## Overleaf template
+The Overleaf template is available here:
+https://www.overleaf.com/latex/templates/leipzig-beamer-template/vxzvtsfytgcj
+
 ## Disclaimer
 This project is a personal initiative, under open source code. For any comments and suggestions please contact to badalmondal.chembgc@gmail.com .
