@@ -14,4 +14,4 @@ The Overleaf template is available here:
 https://www.overleaf.com/latex/templates/leipzig-beamer-template/vxzvtsfytgcj
 
 ## Disclaimer
-This project is a personal initiative, under open source code. For any comments and suggestions please contact to badalmondal.chembgc@gmail.com .
+This project is a personal initiative, under open source code. There is no connection with the university officials yet. For any comments and suggestions please contact to badalmondal.chembgc@gmail.com .
