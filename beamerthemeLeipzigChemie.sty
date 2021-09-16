@@ -1,4 +1,6 @@
 \ProvidesPackage{beamerthemeLeipzigChemie}[07/09/2021]
+\usepackage{fontspec}
+\setsansfont{Arial}
 
 \usepackage{tikz}
 
@@ -15,15 +17,8 @@
 
 \newcommand{\titleHeaderLayout}
 {
-    \begin{tikzpicture}
-        \node[anchor=south west, inner sep=0] (image) at (0,0)
-        {\includegraphics[height=0.2\paperheight]{imglib/logo.png}};
-        \begin{scope}[x={(image.south east)},y={(image.north west)}]
-            \draw[gray, thick] (1.15,0) -- (1.15,1);
-            \node at (2.1,0.65) {\textcolor{black}{\Large \textsf{UNIVERSIT\"AT}}} ;
-            \node at (1.75,0.35) {\textcolor{black}{\Large \textsf{LEIPZIG}}} ;
-        \end{scope}
-    \end{tikzpicture}
+% trim={<left> <lower> <right> <upper>}
+\includegraphics[trim={5em 0 0 4em},height=0.25\paperheight]{imglib/logo_leipzig.eps}
 }
 
 \makeatletter
