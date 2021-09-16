@@ -2,6 +2,7 @@
 Latex presentation template for Leipzig university.
 
 ## Notes
+* **Use XeLatex or LuaLaTeX for compilation. pdfLatex compilation will not work becuse of font specification.** Please go through [overleaf custom font](https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F) if you want to know more about font specification.
 * It uses `tikz` for the background images.
 * The footnotes will be added from the bottom. If you want to pull the footnotes towards red-black margin line then use `\addfootspace{}` at the end of the `\frame{}`.
 * `\addfootspace{}` actually adds an additional vacant footnote (without counting that vacant footnote).
