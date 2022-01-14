@@ -7,10 +7,12 @@
 \mode<presentation>
 
 %%%%%%% Define color %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\definecolor{color1}{RGB}{220,0,0}
-\definecolor{color2}{RGB}{180,0,0}
-\definecolor{color3}{RGB}{95,158,160}
 \definecolor{DarkOrange}{RGB}{255, 152, 0}
+\definecolor{granat}{RGB}{176, 47, 44}
+\definecolor{karneol}{RGB}{214, 66, 66}
+\definecolor{aquamarin}{RGB}{138, 194, 209}
+\definecolor{hellgrau}{RGB}{201, 201, 201}
+\definecolor{basalt}{RGB}{38, 42, 49}
 
 %%%%%%%%%%%%%%%% Title page Layout %%%%%%%%%%%%%%%
 \setbeamersize{sidebar width left=1mm, sidebar width right=1mm}
@@ -74,38 +76,59 @@
 {
     \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
         \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
-        \draw[red, thin] (0.075,0.85) -- (0.92,0.85);
-        \draw[black, thin] (0.075,0.855) -- (0.92,0.855);
-        \path[gray, thick]  (0.076,0.86) edge node[right, yshift=6pt] {\textcolor{black}{\small \textsf{UNIVERSIT\"AT} \hspace*{30em}\insertframenumber/\inserttotalframenumber}} (0.076,.98);
-        \path[gray]  (0.076,0.86) edge node[right, yshift=-6pt] {\textcolor{black}{\small \textsf{LEIPZIG}}} (0.076,.98);
+        \draw[karneol, very thin] (0.068,0.88) -- (0.93,0.88);
+        \draw[gray, very thin] (0.068,0.885) -- (0.93,0.885);
+        
+        \path[gray, thin]  (0.07,0.89) edge node[right, yshift=3pt] {\textcolor{black}{\tiny \textsf{UNIVERSIT\"AT}}} (0.07,.98);
+        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}\hspace*{59.5em}}\textcolor{karneol}{\tiny \insertframenumber}} (0.07,.98);
         \end{scope}
     \end{tikzpicture}
 }}
 %%%%%%% Headline %%%%%%%%%%%%%%%%%%%%
-\setbeamertemplate{headline}
-{\hbox{%
-\begingroup
-\begin{beamercolorbox}[wd=\paperwidth,ht=15pt,dp=2pt,left]{}%
-\rule[2.5pt]{25pt}{1.5pt}\hskip 2pt \small\insertshortsubtitle{} $\mid$ \insertshorttitle{}
-\end{beamercolorbox}%
-\endgroup
-}}
-
+\setbeamertemplate{headline}{
+	\begin{beamercolorbox}[wd=\paperwidth, ht=4mm]{title in head/foot}
+		% gray and black line at the start
+		\begin{tikzpicture}
+			\draw [white](0,0)--(0.8,0); % Only to help position other lines
+			\draw [gray, very thin](0,.08) -- (.8,.08);
+			\draw [black, very thin] (0,.11) -- (.8,.11);
+		\end{tikzpicture}
+		\small \ \textbf{\insertshorttitle}\ | \insertsection
+	\end{beamercolorbox}
+	
+}
 %%%%%%% Frame title %%%%%%%%%%%%%%%
 \setbeamertemplate{frametitle}{\vskip 10pt\color{black}\bfseries \insertframetitle\par \vskip 2pt}
 
-%%%%%%%%%%%%%%%%%%%% Section page layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% Section page layout for 4/3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\specialpagelayout}
+{\setbeamertemplate{background}{
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[granat, fill=granat,thin] (0.65,0) -- (1,0) --  (1,1) -- cycle;
+        \draw[aquamarin, fill=aquamarin, thin] (0.7,1) -- (1,1) --  (0.85,0.574) -- cycle;
+        \draw[karneol,fill=karneol, thin] (0.85,0.574) -- (1,1) --  (1,0.1475) -- cycle;
+        \draw[karneol, very thin] (0.068,0.88) -- (0.7,0.88);
+        \draw[gray, very thin] (0.068,0.885) -- (0.7,0.885);
+        \path[gray, thin]  (0.07,0.89) edge node[right, yshift=3pt] {\textcolor{black}{\tiny \textsf{UNIVERSIT\"AT}}} (0.07,.98);
+        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}}} (0.07,.98);
+        \end{scope}
+    \end{tikzpicture}
+}}
+
+%%%%%%%%%%%%%%%%%%%% Section page layout for 16/9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\SpecialPageLayout}
 {\setbeamertemplate{background}{
     \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
         \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
-        \draw[color2,fill=color2, thin] (0.6,0) -- (1,0) --  (1,1) -- cycle;
-        \draw[color3, fill=color3, thin] (0.7,1) -- (1,1) --  (0.845,0.61) -- cycle;
-        \draw[color1, fill=color1, thin] (0.845,0.61) -- (1,1) --  (1,0.2) -- cycle;
-        \draw[red, thin] (0.075,0.85) -- (0.7,0.85);
-        \draw[black, thin] (0.075,0.855) -- (0.7,0.855);
-        \path[gray, thick]  (0.076,0.86) edge node[right, yshift=6pt] {\textcolor{black}{\small \textsf{UNIVERSIT\"AT}}} (0.076,.98);
-        \path[gray]  (0.076,0.86) edge node[right, yshift=-6pt] {\textcolor{black}{\small \textsf{LEIPZIG}}} (0.076,.98);
+        \draw[granat,fill=granat, thin] (0.6375,0) -- (0.9375,0) --  (0.788,0.575) -- cycle;
+        \draw[aquamarin, fill=aquamarin, thin] (0.675,1) -- (0.9,1) --  (0.788,0.575) -- cycle;
+        \draw[karneol, fill=karneol, thin] (0.9375,0) -- (1,0) --  (1,0.77) -- (0.9375,1) -- (0.9,1) -- (0.788,0.575) -- cycle;
+        \draw[granat,fill=granat, thin] (0.9375,1) -- (1,1) --  (1,0.77) -- cycle;
+        \draw[karneol, very thin] (0.068,0.88) -- (0.675,0.88);
+        \draw[gray, very thin] (0.068,0.885) -- (0.675,0.885);
+        \path[gray, thin]  (0.07,0.89) edge node[right, yshift=3pt] {\textcolor{black}{\tiny \textsf{UNIVERSIT\"AT}}} (0.07,.98);
+        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}}} (0.07,.98);
         \end{scope}
     \end{tikzpicture}
 }}
@@ -122,9 +145,9 @@
 \setbeamertemplate{background}{    
     \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
         \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
-        \draw[color3,fill=color3, thin] (0.6,1) -- (1,1) -- (1,0.6) -- cycle;
-        \draw[color1, fill=color1, thin] (0.9,1) -- (1,1) -- (1,0.6) -- (0.933,0.665) -- cycle;
-        \draw[color2, fill=color2,thin] (1,0.6) -- (0.933,0.665) -- (1,0) -- cycle;
+        \draw[aquamarin,fill=aquamarin, thin] (0.65,1) -- (1,1) -- (1,0.65) -- cycle;
+        \draw[karneol, fill=karneol, thin] (0.895,1) -- (1,1) -- (1,0.65) -- (0.925,0.725) -- cycle;
+        \draw[granat, fill=granat,thin] (1,0.65) -- (0.925,0.725) -- (1,0) -- cycle;
         \end{scope}
     \end{tikzpicture}}
 \setbeamertemplate{headline}{}
@@ -133,11 +156,30 @@
 \end{frame}
 }}
 
-%% Number the table of contents
-\setbeamertemplate{section in toc}[sections numbered]
-\setbeamertemplate{subsection in toc}[subsections numbered]
-\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+% Table of contents color and indentation
+%-------- Many thanks to Victor Jüttner for this part -----------------------
+\setbeamercolor{section in toc}{fg=granat}
 
+\defbeamertemplate{section in toc}{mysections numbered}
+{\leavevmode
+	\parbox[t]{2em}{\inserttocsectionnumber.}
+	\parbox[t]{.4\textwidth}{\inserttocsection}\par}
+\setbeamertemplate{section in toc}[mysections numbered]
+
+\defbeamertemplate{subsection in toc}{mysubsections numbered}
+{\leavevmode
+	\hspace{2em}
+	\parbox[t]{2em}{\inserttocsectionnumber.\inserttocsubsectionnumber}
+	\parbox[t]{.4\textwidth}{\inserttocsubsection}\par}
+\setbeamertemplate{subsection in toc}[mysubsections numbered]
+
+\defbeamertemplate{subsubsection in toc}{mysubsubsections numbered}
+{\leavevmode
+	\hspace{4em}
+	\parbox[t]{3em}{\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}
+	\parbox[t]{.4\textwidth}{\inserttocsubsubsection}\par}
+\setbeamertemplate{subsubsection in toc}[mysubsubsections numbered]
+%--------------------------------------------------------------------------
 %% This is to make table of contents/ overview slide after title page
 \newcommand{\maketableofcontents}{
     {
@@ -180,3 +222,22 @@
 
 %%%%%%%%%%% Bibliograpy items as number %%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{bibliography item}{\insertbiblabel}
+
+% Itemizesymbol
+\setbeamercolor{itemize item}{fg=karneol}
+\setbeamertemplate{itemize item}{--}
+\setbeamercolor{itemize subitem}{fg=karneol}
+\setbeamertemplate{itemize subitem}{--}
+\setbeamercolor{itemize subsubitem}{fg=karneol}
+\setbeamertemplate{itemize subsubitem}{--}
+\setbeamercolor{enumerate item}{fg=karneol}
+\setbeamercolor{enumerate subitem}{fg=karneol}
+\setbeamercolor{enumerate subitem}{fg=karneol}
+
+%%%%%%%%%%%%%%%%%%%% Captions %%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{caption name}{fg=black!50}
+\setbeamertemplate{caption}[numbered]
+
+%%%%%%%%%%%%%%%%%%%% Alert %%%%%%%%%%%%%%%%%%%
+\setbeamercolor{alerted text}{fg=karneol}
+\setbeamertemplate{blocks}[rounded][shadow=true]

@@ -4,4 +4,24 @@
 \usepackage{import}
 \usepackage[backend=biber,style=science,doi=false,isbn=false,url=false,eprint=false,date=year,citestyle=numeric-comp,]{biblatex}
 \usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
 
+%%%%%%%%%%%%%% Noteblock %%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{mynote}[1][Note]{
+	colback=white,
+	colbacktitle=aquamarin,
+	coltitle=white,
+	colframe=aquamarin,
+	titlerule=1pt,
+	title={\strut#1}
+}
+%%%%%%%%%%%%%% Alertblock %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{myalert}[1][Alert]{
+	colback=white,
+	colbacktitle=karneol,
+	coltitle=white,
+	colframe=karneol,
+	titlerule=1pt,
+	title={\strut#1}
+}
