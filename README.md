@@ -11,8 +11,10 @@ Latex presentation template for Leipzig university.
 * Use `\GroupLogo{logo-path}` to add department or group logo.
 
 ## Overleaf template
-The Overleaf template is available here:
-https://www.overleaf.com/latex/templates/leipzig-beamer-template/vxzvtsfytgcj
+The Overleaf template is available here: [Leipzig Beamer Template](https://www.overleaf.com/latex/templates/leipzig-beamer-template/vxzvtsfytgcj)
+
+## Acknowledgements
+* The author would like to thank Victor Jüttner from Leipzig University for sharing his contribution to the project.
 
 ## Disclaimer
 This project is a personal initiative, under open source code. There are no connections with the university officials yet. For any comments and suggestions please contact to badalmondal.chembgc@gmail.com .
