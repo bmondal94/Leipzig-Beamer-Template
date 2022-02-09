@@ -62,7 +62,7 @@
 
 \newcommand{\GroupLogo}[1]{\addtobeamertemplate{title page}{
     \begin{tikzpicture}[remember picture, overlay]
-        \node[anchor=south east] (image) at (10.5,-3.5){\includegraphics[height=0.2\textheight]{#1}};
+        \node[anchor=south west] (image) at (0.6\textwidth,-3.5){\includegraphics[height=0.2\textheight]{#1}};
     \end{tikzpicture}
 }}
 
@@ -80,7 +80,7 @@
         \draw[gray, very thin] (0.068,0.885) -- (0.93,0.885);
         
         \path[gray, thin]  (0.07,0.89) edge node[right, yshift=3pt] {\textcolor{black}{\tiny \textsf{UNIVERSIT\"AT}}} (0.07,.98);
-        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}\hspace*{59.5em}}\textcolor{karneol}{\tiny \insertframenumber}} (0.07,.98);
+        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}\hspace*{0.915\textwidth}}\textcolor{karneol}{\tiny \insertframenumber}} (0.07,.98);
         \end{scope}
     \end{tikzpicture}
 }}
@@ -180,10 +180,17 @@
 	\parbox[t]{.4\textwidth}{\inserttocsubsubsection}\par}
 \setbeamertemplate{subsubsection in toc}[mysubsubsections numbered]
 %--------------------------------------------------------------------------
+\def\definepagelayoutwithAR{
+	\ifnum \BeamerAspectRatio=169
+    	\SpecialPageLayout
+    \else
+    	\specialpagelayout
+    \fi
+}
 %% This is to make table of contents/ overview slide after title page
 \newcommand{\maketableofcontents}{
     {
-    \SpecialPageLayout
+    \definepagelayoutwithAR
     \begin{frame}{Outline}
         \tableofcontents
         \vspace*{3em}
@@ -195,7 +202,7 @@
 \newcommand{\makesubsectionpopup}{
 \AtBeginSubsection[]
 {{
-    \SpecialPageLayout
+    \definepagelayoutwithAR
     \begin{frame}{Outline}
         \tableofcontents[currentsection,currentsubsection]
         \vspace*{3em}
@@ -203,10 +210,21 @@
 }}
 }
 
+%% This will show section name slide before move to each section
+\newcommand{\makesectionpopup}{
+\AtBeginSection[]
+{{
+    \definepagelayoutwithAR
+    \begin{frame}
+        \textbf{\LARGE {\insertsection}}
+    \end{frame}
+}}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%% Re-position Footnote %%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{footnote}{%
-    \raggedright\hspace*{9em}%{\insertfootnotemark}
-    \parbox{30em}{$^{\text{\thefootnote}}$\scriptsize\insertfootnotetext}
+    \raggedright\hspace*{0.15\textwidth}%{\insertfootnotemark}
+    \parbox{0.8\textwidth}{$^{\text{\thefootnote}}$\scriptsize\insertfootnotetext}
 }
 
 \newcommand\addfootspace[1]{%

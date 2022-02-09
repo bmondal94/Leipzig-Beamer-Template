@@ -1,22 +1,33 @@
-\documentclass[aspectratio=169]{beamer}
+%------------- Defines the beamer size ------------------------
+%\def\BeamerAspectRatio{43} % Uncomment this line for 4to3 ratio
+\ifdefined\BeamerAspectRatio
+\else
+    \def\BeamerAspectRatio{169} % Default slide size ratio 16:9
+\fi
+
+%--------------- Defines beamer document ----------------------
+\documentclass[aspectratio=\BeamerAspectRatio]{beamer}
 
 \usepackage{ProjectSpecificAdditionalPackages}
 
 \import{./}{TitlePageInfo.tex}
 \addbibresource{references.bib}
 
-
+%-------------- Start documents -------------------------------
 \begin{document}
 \maketitlepage %% This is to create title page. The data are taken from TitlePageInfo.tex
 \maketableofcontents %% This is to make table of contents/ overview slide after title page
-\makesubsectionpopup %% This will show table of content slides before move to each subsection
+%\makesubsectionpopup %% This will show table of content slides before move to each subsection
+\makesectionpopup %% This will show section name slide before move to each section
 
 \import{slides/}{Introduction.tex}
 \import{slides/}{Motivation.tex}
+\import{slides/}{Notes.tex}
 \import{slides/}{CitationExample.tex}
 \import{slides/}{AlertNoteExample.tex}
 \import{slides/}{TableExample.tex}
 \import{slides/}{Summary.tex}
 \import{slides/}{Acknowledgement.tex}
-%\import{./}{test.tex}
+\import{slides/}{disclaimer.tex}
+%%\import{./}{test.tex}
 \end{document}

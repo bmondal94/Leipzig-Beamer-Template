@@ -1,0 +1,15 @@
+\begin{frame}[fragile]{Notes}
+    \begin{itemize}
+        \item Use \verb|XeLatex| or \verb|LuaLaTeX|. \verb|pdfLatex| will not work because of font specification.
+        \item It uses \verb|tikz| for the background images.
+        \item Use \verb|\GroupLogo{logo-path}| to add department or group logo.
+        \item If you want to make any other page layout like \verb|outline| page then add \verb|\SpecialPageLayout| (for 16:9) and \verb|\specialpagelayout| (for 4:3) before that particular slide.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Notes}
+    \begin{itemize}
+        \item Both aspect ratio 16:9 and 4:3 are now available. The default is 16:9. You can either specify the beamer size by uncommenting the 1st line in main.tex, \verb|\def\BeamerAspectRatio{43}|. Or, from terminal you can also pass the beamer size as below.
+        \item Executing from terminal: \verb|lualatex "\def\BeamerAspectRatio{43} \input{main.tex}"|
+    \end{itemize}
+\end{frame}
